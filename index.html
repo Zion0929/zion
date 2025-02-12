@@ -1,38 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>Syk</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的聊天机器人</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f0f2f5; /* 浅灰色背景 */
+        }
+
+        #chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background-color: #dcf8c6; /* 浅绿色背景 */
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background-color: #fff; /* 白色背景 */
+            align-self: flex-start;
+        }
+#dify-chatbot-bubble-button {
+            background-color: #1C64F2 !important;
+        }
+        #dify-chatbot-bubble-window {
+            /*移除默认样式*/
+            width: auto !important;
+            height: auto !important;
+            /*添加以下样式*/
+            border: none !important;
+            box-shadow: none !important;
+            position: relative !important;
+
+        }
+        #dify-chatbot-chat-container{
+             /*移除默认样式*/
+            padding: 0 !important;
+        }
+        #dify-chatbot-chat-container > div:nth-child(1){
+            /*移除header*/
+            display: none;
+        }
+        #dify-chatbot-chat-container > div:nth-child(2){
+            /*消息列表充满容器*/
+            flex: 1;
+        }
+
+    </style>
 </head>
 <body>
-    <header>
-        <h1>oi 小鬼 等你很久了</h1>
-    </header>
-    
-    <main>
-        <p>不要在意这个伪人域名.......</p>
-    </main>
+    <div id="chat-container">
+        </div>
 
-    <!-- Dify Chatbot 嵌入代码 -->
     <script>
-    window.difyChatbotConfig = {
-        token: 'r1URbOundqJmjXpf'
-    }
+     window.difyChatbotConfig = {
+      token: 'rlURbOundqJmjXpf'
+     }
     </script>
-    <script 
-        src="https://udify.app/embed.min.js"
-        id="r1URbOundqJmjXpf"
-        defer>
+    <script
+     src="https://udify.app/embed.min.js"
+     id="rlURbOundqJmjXpf"
+     defer>
     </script>
-    <style>
-    #dify-chatbot-bubble-button {
-        background-color: #1C64F2 !important;
-    }
-    #dify-chatbot-bubble-window {
-        width: 24rem !important;
-        height: 40rem !important;
-    }
-    </style>
 </body>
 </html>
