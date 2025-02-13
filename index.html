@@ -3,30 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dify 聊天机器人嵌入示例</title>
+    <title>chat with Syk</title>
     <style>
+        /* 基础样式 - 米白色调 */
         body {
             margin: 0;
-            height: 100vh; /* 使用视口高度 */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #faf9f6; /* 米白色背景 */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 类似 Claude 的字体 */
         }
+
+        /* iframe 样式 */
         iframe {
             width: 100%;
             height: 100%;
             min-height: 700px;
             border: none;
+            display: none; /* 初始隐藏 iframe */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 保留阴影 */
+        }
+
+        /* 加载指示器样式 - 调整颜色 */
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #a9a9a9; /* 调整为较浅的灰色 */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 加载容器和错误信息样式 */
+        #loading-container {
+            text-align: center;
+        }
+
+        #error-message {
+            color: #555; /* 调整错误信息颜色 */
+            display: none;
+            text-align: center;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            iframe {
+                min-height: 500px;
+            }
+             body{
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 加载容器 -->
+    <div id="loading-container">
+        <div class="loader"></div>
+        <p>正在加载聊天机器人...</p>
+    </div>
+
+    <!-- 错误信息 -->
+    <div id="error-message">
+        <p>聊天机器人加载失败，请稍后重试。</p>
+    </div>
+
+    <!-- Dify 聊天机器人 iframe -->
     <iframe
         src="https://udify.app/chatbot/rlURbOundqJmjXpf"
-        style="width: 100%; height: 100%; min-height: 700px"
         frameborder="0"
         allow="microphone"
         title="Dify Chatbot"
+        id="chatbot-iframe"
     ></iframe>
+
+    <!-- JavaScript 代码 -->
+    <script>
+        const iframe = document.getElementById('chatbot-iframe');
+        const loadingContainer = document.getElementById('loading-container');
+        const errorMessage = document.getElementById('error-message');
+
+        iframe.onload = () => {
+            loadingContainer.style.display = 'none'; // 加载完成，隐藏加载指示器
+            iframe.style.display = 'block'; // 显示 iframe
+        };
+
+        iframe.onerror = () => {
+            loadingContainer.style.display = 'none'; // 加载失败，隐藏加载指示器
+            errorMessage.style.display = 'block'; // 显示错误信息
+        };
+    </script>
 </body>
 </html>
