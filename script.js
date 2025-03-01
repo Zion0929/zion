@@ -1,60 +1,66 @@
-// 弹窗内容数据
-const popupContent = [
-    {
-        message: "你吃泻药了吗？",
-        image: "https://picsum.photos/400/300?random=1"
-    },
-    {
-        message: "我警告你不要惹我！",
-        image: "https://picsum.photos/400/300?random=2"
-    },
-    {
-        message: "你确定要继续吗？",
-        image: "https://picsum.photos/400/300?random=3"
-    },
-    {
-        message: "游戏才刚刚开始！",
-        image: "https://picsum.photos/400/300?random=4"
-    },
-    {
-        message: "别想关闭我！",
-        image: "https://picsum.photos/400/300?random=5"
-    }
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const stars = document.querySelectorAll('.star');
+    const textarea = document.querySelector('textarea');
+    const wordCount = document.querySelector('.word-count');
+    const submitBtn = document.querySelector('.submit-btn');
+    const modal = document.getElementById('success-modal');
+    const closeBtn = document.querySelector('.close-btn');
+    let rating = 0;
 
-let popupInterval;
+    // 评分交互
+    const updateStars = (hoveredValue = null) => {
+        stars.forEach(star => {
+            const value = parseInt(star.getAttribute('data-value'));
+            star.classList.toggle('active', value <= (hoveredValue || rating));
+        });
+    };
 
-function startPopup() {
-    popupInterval = setInterval(createPopup, 1000);
-}
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            rating = parseInt(star.getAttribute('data-value'));
+            updateStars();
+        });
+        star.addEventListener('mouseover', () => updateStars(parseInt(star.getAttribute('data-value'))));
+        star.addEventListener('mouseout', () => updateStars());
+    });
 
-function createPopup() {
-    const randomIndex = Math.floor(Math.random() * popupContent.length);
-    const content = popupContent[randomIndex];
+    // 字数统计
+    textarea.addEventListener('input', () => {
+        const count = textarea.value.length;
+        wordCount.textContent = `${count}/200`;
+        wordCount.style.color = count > 180 ? '#e74c3c' : '#7f8c8d';
+    });
 
-    const popupWindow = window.open("", "_blank", "width=400,height=300");
-    popupWindow.document.write(`
-        <html>
-        <head>
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    text-align: center;
-                    background-color: #f5e1a8;
-                    padding: 20px;
-                }
-                img {
-                    max-width: 100%;
-                    height: auto;
-                    margin: 20px 0;
-                }
-            </style>
-        </head>
-        <body>
-            <h2>${content.message}</h2>
-            <img src="${content.image}" alt="搞怪图片">
-        </body>
-        </html>
-    `);
-    popupWindow.document.close();
-}
+    // 提交逻辑
+    submitBtn.addEventListener('click', () => {
+        if (rating === 0) {
+            alert('请先选择评分！');
+            return;
+        }
+        if (!textarea.value.trim()) {
+            alert('请输入您的评论！');
+            return;
+        }
+        modal.style.display = 'flex';
+        submitBtn.disabled = true; // 防止重复提交
+        submitBtn.textContent = '提交中...';
+        setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = '提交评价';
+        }, 1000);
+    });
+
+    // 关闭弹窗并重置
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        stars.forEach(star => star.classList.remove('active'));
+        textarea.value = '';
+        wordCount.textContent = '0/200';
+        rating = 0;
+    });
+
+    // 点击模态框外部关闭
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeBtn.click();
+    });
+});
