@@ -1,128 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 确保 Viewport 设置正确 --> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高级工具箱</title>
+    <title>好评界面</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>工具箱</h1>
-        </header>
-        <main class="main-content">
-            <div class="tool-grid">
-                <!-- 筛骰子 -->
-                <div class="tool-card">
-                    <button class="tool-btn" onclick="showLoading('筛骰子')">
-                        <div class="tool-icon">🎲</div>
-                        <div class="tool-label">筛骰子</div>
-                    </button>
-                </div>
-
-                <!-- 抛硬币 -->
-                <div class="tool-card">
-                    <button class="tool-btn" onclick="showLoading('抛硬币')">
-                        <div class="tool-icon">🪙</div>
-                        <div class="tool-label">抛硬币</div>
-                    </button>
-                </div>
-
-                <!-- 文字加密 -->
-                <div class="tool-card">
-                    <button class="tool-btn" onclick="showBase64Prompt()">
-                        <div class="tool-icon">🔒</div>
-                        <div class="tool-label">文字加密</div>
-                    </button>
-                </div>
-
-                <!-- 文字解密 -->
-                <div class="tool-card">
-                    <button class="tool-btn" onclick="showBase64DecodePrompt()">
-                        <div class="tool-icon">🔓</div>
-                        <div class="tool-label">文字解密</div>
-                    </button>
-                </div>
-
-                <!-- 二维码生成 -->
-                <div class="tool-card">
-                    <button class="tool-btn" onclick="generateQRCode()">
-                        <div class="tool-icon">🔗</div>
-                        <div class="tool-label">二维码生成</div>
-                    </button>
-                </div>
-
-                <!-- 计算器 -->
-                <div class="tool-card">
-                    <button class="tool-btn" onclick="showCalculator()">
-                        <div class="tool-icon">🤖</div>
-                        <div class="tool-label">计算器</div>
-                    </button>
-                </div>
-            </div>
-        </main>
+        <h1>您的好评是我们最大的鼓励！</h1>
+        <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+        <textarea placeholder="请告诉我们您的感受吧～" maxlength="200"></textarea>
+        <div class="word-count">0/200</div>
+        <button class="submit-btn">提交评价</button>
     </div>
-
-    <!-- 弹出窗口（用于显示结果、加密/解密结果等） -->
-    <div id="resultModal" class="modal">
+    <div class="modal" id="success-modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">×</span>
-            <h2 id="modalTitle"></h2>
-            <p id="modalText"></p>
-            <div id="copyBtnContainer">
-                <button id="copyBtn" class="copy-btn" onclick="copyToClipboard()">📋 复制</button>
-            </div>
+            <p>感谢您的评价！您的支持是我们前进的动力！</p>
+            <button class="close-btn">关闭</button>
         </div>
     </div>
-
-    <!-- 二维码显示区域 -->
-    <div id="qrCodeContainer" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeQRCodeModal()">×</span>
-            <h2>二维码生成</h2>
-            <div id="qrCode"></div>
-        </div>
-    </div>
-
-    <!-- 加载动画 -->
-    <div id="loadingModal" class="modal">
-        <div class="modal-content">
-            <!-- 加载动画将直接添加到这里 -->
-        </div>
-    </div>
-
-    <!-- 计算器界面 -->
-    <div id="calculatorModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeCalculatorModal()">×</span>
-            <h2>计算器</h2>
-            <div id="calculatorDisplay">0</div>
-            <div id="calculatorButtons">
-                <button onclick="calculatorInput('AC')">AC</button>
-                <button onclick="calculatorInput('⌫')">⌫</button>
-                <button onclick="calculatorInput('%')">%</button>
-                <button onclick="calculatorInput('/')">/</button>
-                <button onclick="calculatorInput('7')">7</button>
-                <button onclick="calculatorInput('8')">8</button>
-                <button onclick="calculatorInput('9')">9</button>
-                <button onclick="calculatorInput('*')">*</button>
-                <button onclick="calculatorInput('4')">4</button>
-                <button onclick="calculatorInput('5')">5</button>
-                <button onclick="calculatorInput('6')">6</button>
-                <button onclick="calculatorInput('-')">-</button>
-                <button onclick="calculatorInput('1')">1</button>
-                <button onclick="calculatorInput('2')">2</button>
-                <button onclick="calculatorInput('3')">3</button>
-                <button onclick="calculatorInput('+')">+</button>
-                <button onclick="calculatorInput('0')">0</button>
-                <button onclick="calculatorInput('.')">.</button>
-                <button onclick="calculateResult()">=</button>
-            </div>
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
