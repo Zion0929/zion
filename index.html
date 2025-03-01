@@ -1,35 +1,20 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zion的后花园</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>究极程序员发泄模拟器</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-animation"></div>
-    <div class="container">
-        <h1>您的好评是对Zion最大的打击！</h1>
-        <div class="rating">
-            <span class="star" data-value="1">★</span>
-            <span class="star" data-value="2">★</span>
-            <span class="star" data-value="3">★</span>
-            <span class="star" data-value="4">★</span>
-            <span class="star" data-value="5">★</span>
-        </div>
-        <div class="textarea-wrapper">
-            <textarea placeholder="请告诉Zion您的感受吧～Zion一定不会听的～" maxlength="200"></textarea>
-            <span class="word-count">0/200</span>
-        </div>
-        <button class="submit-btn">提交评价</button>
+    <div id="deathCounter">程序员死亡次数：0</div>
+    <button id="rageButton">点击发泄！</button>
+    <div class="errorWindow" id="errorWindow">
+        <h2>⚠️ 严重错误 ⚠️</h2>
+        <p>错误代码：0xDEADBEEF</p>
+        <p>找不到任何有用的问题解决方案</p>
+        <button onclick="closeError()">好的，我放弃</button>
     </div>
-    <div class="modal" id="success-modal">
-        <div class="modal-content">
-            <div class="checkmark">✔</div>
-            <p>感谢您的评价！您的支持是Zion躺平的动力！</p>
-            <button class="close-btn">关闭</button>
-        </div>
-    </div>
+    <button id="bossKey">老板键（假装工作）</button>
     <script src="script.js"></script>
 </body>
 </html>
