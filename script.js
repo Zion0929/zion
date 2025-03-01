@@ -1,60 +1,60 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const stars = document.querySelectorAll('.star');
-    const textarea = document.querySelector('textarea');
-    const wordCount = document.querySelector('.word-count');
-    const submitBtn = document.querySelector('.submit-btn');
-    const modal = document.getElementById('success-modal');
-    const closeBtn = document.querySelector('.close-btn');
-    let rating = 0;
+// 弹窗内容数据
+const popupContent = [
+    {
+        message: "你吃泻药了吗？",
+        image: "https://picsum.photos/400/300?random=1"
+    },
+    {
+        message: "我警告你不要惹我！",
+        image: "https://picsum.photos/400/300?random=2"
+    },
+    {
+        message: "你确定要继续吗？",
+        image: "https://picsum.photos/400/300?random=3"
+    },
+    {
+        message: "游戏才刚刚开始！",
+        image: "https://picsum.photos/400/300?random=4"
+    },
+    {
+        message: "别想关闭我！",
+        image: "https://picsum.photos/400/300?random=5"
+    }
+];
 
-    // 评分功能
-    stars.forEach(star => {
-        star.addEventListener('click', () => {
-            rating = star.getAttribute('data-value');
-            stars.forEach(s => {
-                s.classList.remove('active');
-                if (s.getAttribute('data-value') <= rating) {
-                    s.classList.add('active');
+let popupInterval;
+
+function startPopup() {
+    popupInterval = setInterval(createPopup, 1000);
+}
+
+function createPopup() {
+    const randomIndex = Math.floor(Math.random() * popupContent.length);
+    const content = popupContent[randomIndex];
+
+    const popupWindow = window.open("", "_blank", "width=400,height=300");
+    popupWindow.document.write(`
+        <html>
+        <head>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    background-color: #f5e1a8;
+                    padding: 20px;
                 }
-            });
-        });
-
-        star.addEventListener('mouseover', () => {
-            stars.forEach(s => {
-                if (s.getAttribute('data-value') <= star.getAttribute('data-value')) {
-                    s.style.color = '#ffd700';
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    margin: 20px 0;
                 }
-            });
-        });
-
-        star.addEventListener('mouseout', () => {
-            stars.forEach(s => {
-                s.style.color = s.classList.contains('active') ? '#ffd700' : '#ccc';
-            });
-        });
-    });
-
-    // 字数统计
-    textarea.addEventListener('input', () => {
-        const count = textarea.value.length;
-        wordCount.textContent = `${count}/200`;
-    });
-
-    // 提交按钮
-    submitBtn.addEventListener('click', () => {
-        if (rating > 0 && textarea.value.trim() !== '') {
-            modal.style.display = 'flex';
-        } else {
-            alert('请完成评分和评论！');
-        }
-    });
-
-    // 关闭弹窗
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-        stars.forEach(s => s.classList.remove('active'));
-        textarea.value = '';
-        wordCount.textContent = '0/200';
-        rating = 0;
-    });
-});
+            </style>
+        </head>
+        <body>
+            <h2>${content.message}</h2>
+            <img src="${content.image}" alt="搞怪图片">
+        </body>
+        </html>
+    `);
+    popupWindow.document.close();
+}
