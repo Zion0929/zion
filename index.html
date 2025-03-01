@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>搞怪无限弹窗</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zion的后花园</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="background-animation"></div>
     <div class="container">
-        <h1>你永远无法摆脱我...</h1>
-        <button onclick="startPopup()">启动搞怪程序</button>
+        <h1>您的好评是对Zion最大的打击！</h1>
+        <div class="rating">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+        </div>
+        <div class="textarea-wrapper">
+            <textarea placeholder="请告诉Zion您的感受吧～Zion一定不会听的～" maxlength="200"></textarea>
+            <span class="word-count">0/200</span>
+        </div>
+        <button class="submit-btn">提交评价</button>
     </div>
-
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="checkmark">✔</div>
+            <p>感谢您的评价！您的支持是Zion躺平的动力！</p>
+            <button class="close-btn">关闭</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
