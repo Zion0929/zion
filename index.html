@@ -2,523 +2,255 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>超级无敌暴龙兽_百度百科</title>
-    <style>
-        /* 重置样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        
-        a {
-            text-decoration: none;
-            color: #136ec2;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        ul, ol {
-            list-style: none;
-        }
-        
-        /* 头部导航 */
-        .header {
-            height: 40px;
-            background-color: #fcfcfc;
-            border-bottom: 1px solid #e7e7e7;
-        }
-        
-        .header-inner {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            height: 100%;
-            line-height: 40px;
-            padding: 0 15px;
-        }
-        
-        .header-left a {
-            margin-right: 15px;
-            font-size: 13px;
-            color: #333;
-        }
-        
-        .header-right a {
-            margin-left: 15px;
-            font-size: 13px;
-            color: #666;
-        }
-        
-        /* Logo区域 */
-        .logo-area {
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0 15px;
-        }
-        
-        @media (min-width: 768px) {
-            .logo-area {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        }
-        
-        .baike-logo img {
-            height: 42px;
-        }
-        
-        .search-box {
-            width: 100%;
-            max-width: 500px;
-            height: 38px;
-            border: 2px solid #2e82ff;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            margin-top: 15px;
-        }
-        
-        @media (min-width: 768px) {
-            .search-box {
-                margin-top: 0;
-            }
-        }
-        
-        .search-input {
-            flex: 1;
-            height: 100%;
-            border: none;
-            padding: 0 10px;
-            font-size: 14px;
-            outline: none;
-        }
-        
-        .search-btn {
-            width: 100px;
-            height: 100%;
-            background-color: #2e82ff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        /* 主体内容 */
-        .main-content {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #fff;
-            border: 1px solid #e7e7e7;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        @media (min-width: 768px) {
-            .main-content {
-                flex-direction: row;
-                padding: 20px;
-            }
-        }
-        
-        /* 左侧内容 */
-        .left-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        @media (min-width: 768px) {
-            .left-content {
-                width: 180px;
-                padding-right: 20px;
-                margin-bottom: 0;
-                align-items: flex-start;
-            }
-        }
-        
-        .main-pic {
-            width: 180px;
-            border: 1px solid #eee;
-            margin-bottom: 15px;
-        }
-        
-        .pic-caption {
-            font-size: 12px;
-            color: #999;
-            text-align: center;
-            margin-top: 5px;
-        }
-        
-        /* 右侧内容 */
-        .right-content {
-            width: 100%;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-        }
-        
-        @media (min-width: 768px) {
-            .right-content {
-                flex: 1;
-                padding-left: 20px;
-                padding-top: 0;
-                border-left: 1px solid #eee;
-                border-top: none;
-            }
-        }
-        
-        .title-area {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .title-area h1 {
-            font-size: 34px;
-            color: #333;
-            font-weight: normal;
-            margin-bottom: 5px;
-        }
-        
-        .title-area .subtext {
-            font-size: 14px;
-            color: #999;
-        }
-        
-        .summary {
-            padding: 15px;
-            background-color: #f9f9f9;
-            border: 1px solid #eee;
-            position: relative;
-            margin-bottom: 20px;
-            font-size: 14px;
-            line-height: 24px;
-            text-indent: 2em;
-        }
-        
-        .catalog {
-            border: 1px solid #eee;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .catalog-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .catalog-list li {
-            height: 30px;
-            line-height: 30px;
-            border-bottom: 1px dashed #eee;
-        }
-        
-        .catalog-list li a {
-            display: block;
-            font-size: 14px;
-        }
-        
-        .content-section {
-            margin-bottom: 30px;
-        }
-        
-        .section-title {
-            font-size: 22px;
-            font-weight: bold;
-            color: #333;
-            padding-left: 10px;
-            border-left: 4px solid #2e82ff;
-            margin-bottom: 15px;
-        }
-        
-        .section-content {
-            font-size: 14px;
-            line-height: 24px;
-            color: #333;
-            margin-bottom: 15px;
-            text-indent: 2em;
-        }
-        
-        .baidu-tag {
-            display: inline-block;
-            padding: 3px 8px;
-            background-color: #f5f5f5;
-            border-radius: 3px;
-            margin-right: 10px;
-            margin-bottom: 5px;
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .reference {
-            font-size: 12px;
-            color: #999;
-            line-height: 20px;
-        }
-        
-        /* 底部区域 */
-        .footer {
-            width: 1200px;
-            margin: 20px auto;
-            padding: 20px 0;
-            border-top: 1px solid #e7e7e7;
-            text-align: center;
-            font-size: 12px;
-            color: #999;
-        }
-        
-        .footer a {
-            color: #666;
-            margin: 0 10px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超级无敌暴龙兽 - 狗狗百科</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 头部导航 -->
-    <div class="header">
-        <div class="header-inner">
-            <div class="header-left">
-                <a href="#">百度首页</a>
-                <a href="#">百科首页</a>
-                <a href="#">分类</a>
-                <a href="#">秒懂百科</a>
-                <a href="#">用户中心</a>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">超级无敌暴龙兽</h1>
+                <div class="subtitle">拉布拉猪中的传奇</div>
             </div>
-            <div class="header-right">
-                <a href="#">登录</a>
-                <a href="#">注册</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Logo区域 -->
-    <div class="logo-area">
-        <div class="baike-logo">
-            <a href="#">
-                <img src="/api/placeholder/140/42" alt="百度百科Logo">
-            </a>
-        </div>
-        <div class="search-box">
-            <input type="text" class="search-input" placeholder="搜索词条、用户、分类">
-            <button class="search-btn">百科</button>
-        </div>
-    </div>
-    
-    <!-- 主体内容 -->
-    <div class="main-content">
-        <!-- 左侧内容 -->
-        <div class="left-content">
-            <div class="main-pic">
-                <img src="/api/placeholder/180/240" alt="超级无敌暴龙兽">
-                <div class="pic-caption">超级无敌暴龙兽（小拉布拉多）</div>
-            </div>
-        </div>
-        
-        <!-- 右侧内容 -->
-        <div class="right-content">
-            <div class="title-area">
-                <h1>超级无敌暴龙兽</h1>
-                <div class="subtext">
-                    <span>收藏</span> | 
-                    <span>查看历史版本</span> | 
-                    <span>最近更新：2025-03-08</span>
+        </header>
+
+        <main class="main-content">
+            <div class="sidebar">
+                <div class="profile-card">
+                    <div class="profile-image-container">
+                        <img src="第一次见面.jpg" alt="超级无敌暴龙兽" class="profile-image">
+                    </div>
+                    <h2 class="profile-name">超级无敌暴龙兽</h2>
+                    <p class="profile-description">世界上最xx的拉布拉多</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-value">3</span>
+                            <span class="stat-label">岁</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">25</span>
+                            <span class="stat-label">kg</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">∞</span>
+                            <span class="stat-label">魅力值</span>
+                        </div>
+                    </div>
+                    <div class="owner-info">
+                        <i class="fas fa-user"></i> 主人：Zion
+                    </div>
+                </div>
+                <div class="toc">
+                    <h3>目录</h3>
+                    <ul>
+                        <li><a href="#basic-info">基本信息</a></li>
+                        <li><a href="#history">历史渊源</a></li>
+                        <li><a href="#personality">性格特点</a></li>
+                        <li><a href="#abilities">特殊能力</a></li>
+                        <li><a href="#daily-life">日常生活</a></li>
+                        <li><a href="#gallery">精彩瞬间</a></li>
+                    </ul>
                 </div>
             </div>
-            
-            <div class="summary">
-                超级无敌暴龙兽，是一只小型拉布拉多犬的昵称，实际为拉布拉多犬的幼犬，因其活泼好动、精力充沛的特性和独特的暴龙外形造型玩具而得名。该犬种以其友善、聪明和极易训练的特性而闻名，是全球最受欢迎的家庭宠物犬之一。超级无敌暴龙兽在2023年被选为"网络萌宠年度之星"，因其呆萌可爱的外形和独特的名称在社交媒体上走红，拥有超过300万粉丝关注。
+
+            <div class="content">
+                <section id="basic-info" class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-paw"></i> 基本信息</h2>
+                    </div>
+                    <div class="section-content">
+                        <p><strong>名称：</strong>超级无敌暴龙兽（小名：可乐）</p>
+                        <p><strong>品种：</strong>拉布拉猪</p>
+                        <p><strong>毛色：</strong>奶油味象牙白</p>
+                        <p><strong>出生日期：</strong>2025年01月08日（大概吧）</p>
+                        <p><strong>性别：</strong>男</p>
+                        <p><strong>体重：</strong>未知（反正挺沉的）</p>
+                        <p><strong>身高：</strong>未知（小矮子）</p>
+                        <p><strong>主人：</strong>Zion</p>
+                        <p><strong>居住地：</strong>为了防止你们来把它偷走就不说了hhh</p>
+                        <p><strong>喜好：</strong>睡觉，吃喝拉撒，欺负Zion</p>
+                    </div>
+                </section>
+
+                <section id="history" class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-history"></i> 历史渊源</h2>
+                    </div>
+                    <div class="section-content">
+                        <p>"超级无敌暴龙兽"原本是一只普通的拉布拉多幼犬，2025年的某个冬天被Zion带回家。当时的他只有一个月大，小小的身体里却蕴含着无限的调皮和捣蛋。</p>
+                        <p>名字的由来————没啥由来（超级无敌暴龙兽真的很好听啊！）</p>
+                        <p>虽然名字听起来凶猛，但实际上他是一只非常“温柔友善”的狗狗</p>
+                    </div>
+                </section>
+
+                <section id="personality" class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-heart"></i> 性格特点</h2>
+                    </div>
+                    <div class="section-content">
+                        <p>"超级无敌暴龙兽"拥有典型的拉布拉猪性格特点，但又有暴龙兽的凶猛：</p>
+                        <ul class="feature-list">
+                            <li><span class="feature-icon"><i class="fas fa-smile"></i></span> <span class="feature-text">永远咧着个大嘴，露出那排还没长大的牙齿</span></li>
+                            <li><span class="feature-icon"><i class="fas fa-brain"></i></span> <span class="feature-text">聪明过人，能听懂超过0个指令</span></li>
+                            <li><span class="feature-icon"><i class="fas fa-child"></i></span> <span class="feature-text">特别喜欢Zion，有极强的...猛舔欲？（口水好臭...）</span></li>
+                            <li><span class="feature-icon"><i class="fas fa-running"></i></span> <span class="feature-text">精力充沛，每天至少拆五次家！！</span></li>
+                            <li><span class="feature-icon"><i class="fas fa-water"></i></span> <span class="feature-text">热爱拉撒，在妈咪的教导下学会了在尿垫上尿尿（但是尿偏了）</span></li>
+                            <li><span class="feature-icon"><i class="fas fa-cookie"></i></span> <span class="feature-text">天天缠着Zion，但有时候要玩失踪，怎么都找不到</span></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="abilities" class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-bolt"></i> 特殊能力</h2>
+                    </div>
+                    <div class="section-content">
+                        <p>作为一只不平凡的拉布拉多，"超级无敌暴龙兽"拥有一些令人惊叹的特殊能力：</p>
+                        
+                        <div class="ability-cards">
+                            <div class="ability-card">
+                                <div class="ability-icon"><i class="fas fa-heartbeat"></i></div>
+                                <h3>情绪感知</h3>
+                                <p>能够准确感知主人的情绪变化，在Zion心情低落时总是第一时间前来捣蛋。</p>
+                            </div>
+                            
+                            <div class="ability-card">
+                                <div class="ability-icon"><i class="fas fa-search"></i></div>
+                                <h3>超强嗅觉</h3>
+                                <p>无论Zion把吃的藏在什么地方都能第一时间找到</p>
+                            </div>
+                            
+                            <div class="ability-card">
+                                <div class="ability-icon"><i class="fas fa-clock"></i></div>
+                                <h3>时间记忆</h3>
+                                <p>准确的记得啥时候吃饭，晚一秒就开始委屈的嘤嘤嘤（它真的是这样叫的）</p>
+                            </div>
+                            
+                            <div class="ability-card">
+                                <div class="ability-icon"><i class="fas fa-music"></i></div>
+                                <h3>屁比人响</h3>
+                                <p>总是来到Zion身边然后放一个惊天动地的屁</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="daily-life" class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-calendar-day"></i> 日常生活</h2>
+                    </div>
+                    <div class="section-content">
+                        <p>"超级无敌暴龙兽"的一天通常是这样度过的...</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>早晨 8:00</h3>
+                                    <p>准时拉屎臭醒Zion</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>上午 9:00</h3>
+                                    <p>跟Zion一起学英语</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>中午 12:00</h3>
+                                    <p>午餐时间！吃饱喝足之后放个响屁再睡觉</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>下午 3:00</h3>
+                                    <p>粘着Zion，然后被Zion赶去睡觉</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>晚上 6:00</h3>
+                                    <p>吃喝拉撒然后拆家</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h3>晚上 10:00</h3>
+                                    <p>嗯......超级无敌暴龙兽是早睡早起的好狗狗，已经睡觉咯</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="gallery" class="section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-images"></i> 精彩瞬间</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="gallery">
+                            <div class="gallery-item">
+                                <img src="第一次见面.jpg" alt="超级无敌暴龙兽第一次见面">
+                                <div class="gallery-caption">第一次见面的可爱模样</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="第一次见面就超级亲人（我在吃面他趴在我腿上）.jpg" alt="超级无敌暴龙兽趴在主人腿上">
+                                <div class="gallery-caption">第一次见面就超级亲人，吃面时趴在腿上</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="洗完澡在吹毛.jpg" alt="超级无敌暴龙兽洗完澡">
+                                <div class="gallery-caption">洗完澡吹毛的乖巧时刻</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="自己爬到沙发上然后靠着我睡着了.jpg" alt="超级无敌暴龙兽在沙发上睡觉">
+                                <div class="gallery-caption">自己爬到沙发上靠着主人睡着了</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="出趟门回来发现它跑到我床上去了哈哈.jpg" alt="超级无敌暴龙兽在床上">
+                                <div class="gallery-caption">主人出门回来发现它跑到床上去了</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="狗狗熟睡.jpg" alt="超级无敌暴龙兽睡觉">
+                                <div class="gallery-caption">睡觉时香甜的模样</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-            
-            <div class="catalog">
-                <div class="catalog-title">目录</div>
-                <ul class="catalog-list">
-                    <li><a href="#section1">1 基本信息</a></li>
-                    <li><a href="#section2">2 名称由来</a></li>
-                    <li><a href="#section3">3 性格特点</a></li>
-                    <li><a href="#section4">4 网络走红</a></li>
-                    <li><a href="#section5">5 日常饲养</a></li>
-                    <li><a href="#section6">6 趣闻轶事</a></li>
-                    <li><a href="#section7">7 社会影响</a></li>
-                </ul>
-            </div>
-            
-            <div class="content-section" id="section1">
-                <div class="section-title">基本信息</div>
-                <div class="section-content">
-                    超级无敌暴龙兽，别名"小暴"，是一只出生于2022年5月15日的黄色拉布拉多犬，体重约25公斤，身高58厘米。拉布拉多犬（Labrador Retriever）是一种中大型犬类，起源于加拿大纽芬兰岛，是世界上最受欢迎的犬种之一。超级无敌暴龙兽现居于中国上海，是一只家养宠物犬，主人为知名宠物博主"橘子与狗"。
-                </div>
-                <div class="section-content">
-                    拉布拉多犬通常分为三种颜色：黄色、黑色和巧克力色。超级无敌暴龙兽属于黄色拉布拉多，毛发呈现典型的金黄色调，眼睛为棕色，鼻子为黑色。作为纯种拉布拉多犬，它拥有该品种典型的宽头、强壮的颈部和身体、紧凑的体型以及"水獭"尾巴等特征。
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>© 2024 超级无敌暴龙兽百科 | 主人：Zion</p>
+                <p>本页面所有内容均由Zion授权发布，未经许可请随意转载转载</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            
-            <div class="content-section" id="section2">
-                <div class="section-title">名称由来</div>
-                <div class="section-content">
-                    "超级无敌暴龙兽"这个名字看似与拉布拉多犬无关，实际上是源于一个有趣的家庭故事。当它还是幼犬时，主人的孩子非常喜欢恐龙玩具，特别是暴龙。一天，小狗不小心咬破了孩子最喜欢的暴龙玩具，孩子非常伤心。为了安慰孩子，主人告诉孩子："别难过，我们家的小狗比暴龙还厉害，它是超级无敌暴龙兽！"从此，这个夸张而可爱的名字就沿用下来了。
-                </div>
-                <div class="section-content">
-                    此外，这个名字也反映了拉布拉多犬精力充沛、活泼好动的特性。幼犬时期的拉布拉多经常表现出极高的能量水平，就像一只小型"暴龙"一样，充满活力且不知疲倦，这也使得这个名字显得非常贴切。
-                </div>
-            </div>
-            
-            <div class="content-section" id="section3">
-                <div class="section-title">性格特点</div>
-                <div class="section-content">
-                    超级无敌暴龙兽展现了典型的拉布拉多犬的性格特点：友善、活泼、聪明、忠诚。它对家庭成员非常亲近，同时也对陌生人保持友好。拉布拉多犬以其温和的性格和对人类，特别是儿童的友善而闻名，这使它成为理想的家庭宠物。
-                </div>
-                <div class="section-content">
-                    与大多数拉布拉多犬一样，超级无敌暴龙兽非常喜欢玩水，无论是游泳池还是湖泊，只要有水的地方，它总是表现出极大的兴趣。此外，它还有很强的取物本能，喜欢玩接球、捡物等游戏。这些特点都与拉布拉多犬的历史功能相符，因为它们最初是被培育为猎犬和渔民的助手。
-                </div>
-                <div class="section-content">
-                    值得一提的是，超级无敌暴龙兽还展现出了超强的学习能力，能够快速掌握各种指令和技能。在主人的训练下，它已经学会了超过30个指令，包括一些相对复杂的动作和任务，如帮助捡拾物品、关闭电灯开关等。
-                </div>
-            </div>
-            
-            <div class="content-section" id="section4">
-                <div class="section-title">网络走红</div>
-                <div class="section-content">
-                    2023年初，主人在社交媒体平台上传了一段超级无敌暴龙兽模仿暴龙走路的搞笑视频。视频中，小狗穿着一件迷你暴龙服装，学着暴龙的样子行走，画面极其可爱滑稽。这段视频迅速在互联网上走红，短短一周内获得了超过500万的播放量，引发了大量网友的关注和喜爱。
-                </div>
-                <div class="section-content">
-                    随后，主人开始定期更新超级无敌暴龙兽的日常生活、训练过程和各种有趣瞬间。其中最受欢迎的系列是"暴龙日记"，记录了这只小拉布拉多的生活点滴和成长历程。凭借其可爱的形象和有趣的内容，超级无敌暴龙兽的社交媒体账号迅速积累了大量粉丝，成为知名的宠物网红。
-                </div>
-                <div class="section-content">
-                    2024年，超级无敌暴龙兽还受邀参加了多个宠物相关的活动和节目，进一步扩大了其影响力。目前，它在国内外多个社交媒体平台上拥有超过300万粉丝，成为最受欢迎的宠物网红之一。
-                </div>
-            </div>
-            
-            <div class="content-section" id="section5">
-                <div class="section-title">日常饲养</div>
-                <div class="section-content">
-                    作为一只拉布拉多犬，超级无敌暴龙兽需要科学的饮食和充分的运动来保持健康。在饮食方面，主人为其提供优质的犬粮，并根据年龄和体重调整饮食量。此外，定期的体检和疫苗接种也是保证其健康的重要措施。
-                </div>
-                <div class="section-content">
-                    拉布拉多犬需要大量的运动来消耗精力。超级无敌暴龙兽每天至少进行两次户外活动，包括散步、跑步和游戏。主人还经常带它去专门的狗狗活动场所，让它有机会与其他犬只互动和玩耍。
-                </div>
-                <div class="section-content">
-                    除了基本的生理需求，智力训练也是饲养超级无敌暴龙兽的重要部分。拉布拉多犬聪明且渴望学习，定期的智力游戏和训练不仅能够满足它们的精神需求，还能够增强主人与狗之间的纽带。超级无敌暴龙兽的主人每天都会安排15-30分钟的训练时间，教它新的技能或复习已掌握的指令。
-                </div>
-            </div>
-            
-            <div class="content-section" id="section6">
-                <div class="section-title">趣闻轶事</div>
-                <div class="section-content">
-                    超级无敌暴龙兽有一个非常有趣的习惯：每当家中有人在看电视时，它总会"假装"很感兴趣，坐在电视机前认真观看，尤其是当播放自然纪录片或动物相关节目时。有一次，主人正在看一部关于恐龙的纪录片，超级无敌暴龙兽竟然对着屏幕上的霸王龙"汪汪"叫了好几声，仿佛在与远古亲戚交流，这一幕被记录下来后在网络上引发了大量笑声。
-                </div>
-                <div class="section-content">
-                    另一个广为流传的故事是关于它的"偷吃"技能。超级无敌暴龙兽曾经学会了如何打开冰箱，并在主人不注意的情况下偷吃火腿和奶酪。最有趣的是，它还会把冰箱门重新关上，试图掩盖"犯罪"痕迹。不过，它的小胡子上残留的食物痕迹总会暴露它的行为。
-                </div>
-                <div class="section-content">
-                    此外，超级无敌暴龙兽还有一项特殊的"才能"——它似乎能够预测天气变化。据主人观察，每当要下雨前，它总会表现得特别不安，在家中来回走动并发出低沉的呜呜声。这种现象被许多粉丝称为"暴龙气象台"，成为了一个有趣的网络话题。
-                </div>
-            </div>
-            
-            <div class="content-section" id="section7">
-                <div class="section-title">社会影响</div>
-                <div class="section-content">
-                    作为一只网红宠物，超级无敌暴龙兽的影响已经超出了娱乐范畴。主人利用它的知名度，积极参与各种动物保护和宠物领养活动，呼吁人们关注流浪动物问题，提倡科学养宠和责任养宠的理念。
-                </div>
-                <div class="section-content">
-                    2023年，主人和超级无敌暴龙兽共同发起了"暴龙爱心基金"，专门用于帮助流浪动物和提供宠物医疗援助。该基金已经帮助了超过200只流浪犬猫找到新家，并为经济困难的宠物主人提供了医疗支持。
-                </div>
-                <div class="section-content">
-                    此外，超级无敌暴龙兽还经常访问儿童医院和养老院，作为治疗犬为特殊人群带来快乐和安慰。它温顺的性格和友好的态度使它成为了理想的治疗犬，受到了许多人的喜爱。
-                </div>
-                <div class="section-content">
-                    在宠物行业，超级无敌暴龙兽的走红也带动了相关产品的发展。目前市场上已经有了以它为原型的玩具、服装和各种周边产品，这些产品的部分收益也会捐赠给动物保护组织。
-                </div>
-            </div>
-            
-            <div class="content-section">
-                <div class="section-title">参考资料</div>
-                <div class="reference">
-                    [1] 《宠物伴侣》杂志，2023年5月刊：《网红宠物的社会影响》<br>
-                    [2] 《拉布拉多犬饲养手册》，中国农业出版社，2022年版<br>
-                    [3] 宠物生活网：《2023年度网络宠物红人榜单》，2023年12月<br>
-                    [4] 中国宠物协会：《责任养宠倡议书》，2024年发布<br>
-                    [5] 《动物与社会》期刊：《互联网时代宠物对人类社会的影响》，2024年第2期
-                </div>
-            </div>
-            
-            <div class="content-section">
-                <div class="section-title">词条标签</div>
-                <div>
-                    <span class="baidu-tag">拉布拉多</span>
-                    <span class="baidu-tag">宠物犬</span>
-                    <span class="baidu-tag">网红宠物</span>
-                    <span class="baidu-tag">动物保护</span>
-                    <span class="baidu-tag">宠物饲养</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- 底部区域 -->
-    <div class="footer">
-        <div>
-            <a href="#">帮助中心</a>
-            <a href="#">百科协议</a>
-            <a href="#">百度百科合作平台</a>
-            <a href="#">京ICP证030173号</a>
-            <a href="#">京网文【2023】1027-187号</a>
-        </div>
-        <div style="margin-top: 10px;">©2025 Baidu</div>
+        </footer>
     </div>
 
-    <script>
-        // 添加一些简单的交互效果
-        document.addEventListener('DOMContentLoaded', function() {
-            // 目录点击滚动
-            const catalogLinks = document.querySelectorAll('.catalog-list a');
-            catalogLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 20,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // 搜索框焦点效果
-            const searchInput = document.querySelector('.search-input');
-            searchInput.addEventListener('focus', function() {
-                this.parentElement.style.boxShadow = '0 0 5px rgba(46, 130, 255, 0.5)';
-            });
-            searchInput.addEventListener('blur', function() {
-                this.parentElement.style.boxShadow = 'none';
-            });
-            
-            // 搜索按钮点击效果
-            const searchBtn = document.querySelector('.search-btn');
-            searchBtn.addEventListener('click', function() {
-                alert('百科搜索功能演示');
-            });
-        });
-    </script>
+    <div class="floating-action">
+        <button id="back-to-top" class="btn-float"><i class="fas fa-arrow-up"></i></button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 
