@@ -3,313 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微信红包</title>
+    <title>小K - 完全变态生物百科</title>
     <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background-color: #f1f1f1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 390px;
-    height: 844px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-/* 红包封面样式 */
-.red-packet-cover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #F05042;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 300px;
-    z-index: 2;
-    transition: transform 0.5s ease-out;
-}
-
-.avatar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.avatar {
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="%23FFDE59"/></svg>');
-}
-
-.sender-name {
-    color: white;
-    font-size: 22px;
-    margin-top: 10px;
-    text-align: center;
-}
-
-.wish-text {
-    color: white;
-    font-size: 32px;
-    margin-bottom: 120px;
-}
-
-.open-button {
-    width: 160px;
-    height: 160px;
-    background-color: #E6C973;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 36px;
-    color: #333;
-    cursor: pointer;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* 红包打开后样式 */
-.red-packet-opened {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease-in;
-}
-
-.hidden {
-    display: none;
-}
-
-.show {
-    opacity: 1;
-}
-
-.header {
-    height: 200px;
-    background-color: #F05042;
-    border-bottom-left-radius: 50% 20%;
-    border-bottom-right-radius: 50% 20%;
-    border-bottom: 1px solid #E6C973;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    padding: 60px 20px 0;
-}
-
-.back-button, .menu-dots {
-    color: white;
-    font-size: 24px;
-}
-
-.content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.wish-text-small {
-    color: #999;
-    font-size: 18px;
-    margin: 10px 0 40px;
-}
-
-.amount-container {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 20px;
-}
-
-.amount {
-    color: #E6C973;
-    font-size: 70px;
-    font-weight: bold;
-}
-
-.currency {
-    color: #E6C973;
-    font-size: 22px;
-    margin-left: 5px;
-}
-
-.transfer-message {
-    color: #E6C973;
-    font-size: 16px;
-    margin-bottom: 30px;
-}
-
-.reply-button {
-    background-color: #2A2A2A;
-    color: #E6C973;
-    font-size: 16px;
-    padding: 15px 30px;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 60px;
-}
-
-.emoji {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.sender-info {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.sender-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><rect width="40" height="40" fill="%23FFC0CB"/></svg>');
-}
-
-.sender-details {
-    flex: 1;
-    margin-left: 10px;
-}
-
-.sender-id {
-    color: white;
-    font-size: 16px;
-}
-
-.time {
-    color: #777;
-    font-size: 14px;
-}
-
-.amount-small {
-    color: white;
-    font-size: 16px;
-}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 20px;
+        }
+        .taxonomy {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .warning {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 红包封面界面 -->
-        <div id="redPacketCover" class="red-packet-cover">
-            <div class="avatar-container">
-                <div class="avatar small"></div>
-                <div class="sender-name">Red Packet from ZION.</div>
-            </div>
-            <div class="wish-text">Best wishes</div>
-            <div id="openButton" class="open-button">
-                <span>Open</span>
-            </div>
+        <h1>小K (Xiao K)</h1>
+        
+        <div class="taxonomy">
+            <p><strong>科学分类</strong></p>
+            <ul>
+                <li>界：动物界 Animalia</li>
+                <li>门：节肢动物门 Arthropoda</li>
+                <li>纲：昆虫纲 Insecta</li>
+                <li>目：完全变态目 Holometabola</li>
+                <li>科：小K科 XiaoKidae</li>
+                <li>属：小K属 XiaoKus</li>
+                <li>种：完全变态小K XiaoKus holometabolus</li>
+            </ul>
         </div>
-
-        <!-- 红包打开后界面 -->
-        <div id="redPacketOpened" class="red-packet-opened hidden">
-            <div class="header">
-                <div class="back-button">
-                    <span>&#10094;</span>
-                </div>
-                <div class="menu-dots">
-                    <span>&#8226;&#8226;&#8226;</span>
-                </div>
-            </div>
-            <div class="content">
-                <div class="avatar-container">
-                    <div class="avatar small"></div>
-                    <div class="sender-name">Red Packet from ZION.</div>
-                </div>
-                <div class="wish-text-small">Best wishes</div>
-                <div class="amount-container">
-                    <span class="amount">0.01</span>
-                    <span class="currency">CNY</span>
-                </div>
-                <div class="transfer-message">Red Packet transferred to Wallet ›</div>
-                <div class="reply-button">
-                    <span class="emoji">&#9786;</span>
-                    <span>Reply with a Sticker</span>
-                </div>
-                <div class="sender-info">
-                    <div class="sender-avatar"></div>
-                    <div class="sender-details">
-                        <div class="sender-id">墨墨</div>
-                        <div class="time">18:57</div>
-                    </div>
-                    <div class="amount-small">¥0.01</div>
-                </div>
-            </div>
+        
+        <div class="image-container">
+            <img src="https://via.placeholder.com/600x400?text=小K完全变态生命周期" alt="小K完全变态生命周期">
+            <p><em>小K的完全变态生命周期示意图</em></p>
         </div>
+        
+        <h2>概述</h2>
+        <p>小K（学名：XiaoKus holometabolus）是一种具有完全变态发育特征的独特生物。作为完全变态生物的代表，小K在其生命周期中经历卵、幼虫、蛹和成虫四个截然不同的发育阶段。</p>
+        
+        <h2>形态特征</h2>
+        <h3>成虫形态</h3>
+        <p>成虫体长约2-3厘米，体色多变，通常呈现金属光泽。具有两对翅膀和六足，复眼发达，口器为咀嚼式。</p>
+        
+        <h3>幼虫形态</h3>
+        <p>幼虫呈蠕虫状，体节明显，体长可达5厘米。头部具有强壮的咀嚼式口器，适合啃食各种有机物。</p>
+        
+        <h2>生命周期</h2>
+        <table>
+            <tr>
+                <th>阶段</th>
+                <th>持续时间</th>
+                <th>特征</th>
+            </tr>
+            <tr>
+                <td>卵</td>
+                <td>3-5天</td>
+                <td>椭圆形，白色，直径约1mm</td>
+            </tr>
+            <tr>
+                <td>幼虫</td>
+                <td>2-3周</td>
+                <td>经历5个龄期，大量取食</td>
+            </tr>
+            <tr>
+                <td>蛹</td>
+                <td>7-10天</td>
+                <td>静止期，内部组织重组</td>
+            </tr>
+            <tr>
+                <td>成虫</td>
+                <td>3-4周</td>
+                <td>繁殖期，不取食或少量取食</td>
+            </tr>
+        </table>
+        
+        <h2>生态习性</h2>
+        <p>小K广泛分布于温带和热带地区，栖息于腐殖质丰富的环境中。幼虫主要以腐烂有机物为食，而成虫主要任务是交配和产卵。</p>
+        
+        <div class="warning">
+            <p><strong>注意：</strong>小K的完全变态过程是其最显著的特征，幼虫和成虫在形态、习性和生态位上都有极大差异，这种发育方式使其能够有效利用不同资源，减少种内竞争。</p>
+        </div>
+        
+        <h2>研究意义</h2>
+        <p>小K作为完全变态生物的模式物种，在发育生物学、进化生态学和变态发育遗传机制研究中具有重要价值。科学家通过研究小K的变态过程，揭示了激素调控和基因表达在形态转变中的关键作用。</p>
+        
+        <h2>参考文献</h2>
+        <ol>
+            <li>张某某, 李某某. (2023). 完全变态生物小K的发育生物学研究. 《昆虫学报》, 66(5), 123-135.</li>
+            <li>Wang, X. et al. (2022). Hormonal regulation of metamorphosis in XiaoKus holometabolus. Developmental Biology, 45(3), 234-245.</li>
+        </ol>
+        
+        <p><small>最后更新：2023年11月15日</small></p>
     </div>
-
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const openButton = document.getElementById('openButton');
-    const redPacketCover = document.getElementById('redPacketCover');
-    const redPacketOpened = document.getElementById('redPacketOpened');
-    
-    // 给开启按钮添加点击事件
-    openButton.addEventListener('click', function() {
-        // 播放打开红包动画
-        openRedPacket();
-    });
-
-    // 打开红包的动画效果
-    function openRedPacket() {
-        // 先让红包封面向上滑动
-        redPacketCover.style.transform = 'translateY(-100%)';
-        
-        // 显示打开后的界面
-        redPacketOpened.classList.remove('hidden');
-        
-        // 添加延迟，等待封面滑动动画完成后显示打开后的界面
-        setTimeout(() => {
-            redPacketOpened.classList.add('show');
-        }, 300);
-    }
-    
-    // 添加回到封面的功能
-    const backButton = document.querySelector('.back-button');
-    backButton.addEventListener('click', function() {
-        redPacketOpened.classList.remove('show');
-        
-        setTimeout(() => {
-            redPacketCover.style.transform = 'translateY(0)';
-            redPacketOpened.classList.add('hidden');
-        }, 300);
-    });
-});
-    </script>
 </body>
 </html>
